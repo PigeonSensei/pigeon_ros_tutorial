@@ -37,7 +37,6 @@ int main(int argc, char **argv)
 //    if(basic_class.ReturnInputKey() == 27) break;
   }
 
-  ROS_INFO("IN");
   return 0;
 
 }
