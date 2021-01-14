@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(basic_class_subscribe_tutorial)
+project(basic_subscribe_tutorial)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -68,7 +68,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   roscpp geometry_msgs nav_msgs
+#   roscpp geometry_msgs
 # )
 
 ################################################
@@ -102,8 +102,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES basic_class_subscribe_tutorial
-#  CATKIN_DEPENDS roscpp geometry_msgs nav_msgs
+#  LIBRARIES basic_subscribe_tutorial
+#  CATKIN_DEPENDS roscpp geometry_msgs
 #  DEPENDS system_lib
 )
 
@@ -118,12 +118,12 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(basic_class_subscribe_node src/basic_class_subscribe.cpp)
-target_link_libraries(basic_class_subscribe_node ${catkin_LIBRARIES})
+add_executable(basic_subscibe_node src/basic_subscibe.cpp)
+target_link_libraries(basic_subscibe_node ${catkin_LIBRARIES})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/basic_class_subscribe_tutorial.cpp
+#   src/${PROJECT_NAME}/basic_subscribe_tutorial.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -134,7 +134,7 @@ target_link_libraries(basic_class_subscribe_node ${catkin_LIBRARIES})
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/basic_class_subscribe_tutorial_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/basic_subscribe_tutorial_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -198,7 +198,7 @@ target_link_libraries(basic_class_subscribe_node ${catkin_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_basic_class_subscribe_tutorial.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_basic_subscribe_tutorial.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

@@ -4,6 +4,8 @@
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "basic_publish_node");
+
+  ROS_INFO("basic_publish_node Open");
   ros::NodeHandle n;
 
   geometry_msgs::Twist cmd_vel;
@@ -21,6 +23,8 @@ int main(int argc, char **argv)
     ros::spinOnce();
     loop_rate.sleep();
   }
+
+  ROS_INFO("basic_publish_node Close");
 
   return 0;
 }
