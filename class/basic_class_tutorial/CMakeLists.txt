@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(pigeon_msg)
+project(basic_class_tutorial)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -8,10 +8,14 @@ add_compile_options(-std=c++11)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  message_generation ## MSG
   roscpp
-  std_msgs ## MSG
 )
+
+#add_library(Pigeon_terminal
+#    include/pigeon_terminal/pigeon_terminal.h
+#    src/pigeon_terminal/pigeon_terminal.cpp
+#    )
+
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -47,10 +51,11 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
- add_message_files(
-   FILES
-   tutorial.msg ## MSG
- )
+# add_message_files(
+#   FILES
+#   Message1.msg
+#   Message2.msg
+# )
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -67,10 +72,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
- generate_messages(
-   DEPENDENCIES
-   std_msgs ## MSG
- )
+# generate_messages(
+#   DEPENDENCIES
+#   std_msgs  # Or other packages containing msgs
+# )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -103,8 +108,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-  LIBRARIES pigeon_msg
-  CATKIN_DEPENDS roscpp std_msgs message_runtime ##MSG --message_generation
+#  LIBRARIES basic_class_tutorial
+#  CATKIN_DEPENDS roscpp
 #  DEPENDS system_lib
 )
 
@@ -115,22 +120,16 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
- include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(pigeon_msg_pub_node src/pigeon_msg_pub.cpp)
-add_dependencies(pigeon_msg_pub_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(pigeon_msg_pub_node ${catkin_LIBRARIES})
+add_executable(basic_class_node src/basic_class.cpp)
+target_link_libraries(basic_class_node ${catkin_LIBRARIES} )
 
-add_executable(pigeon_msg_sub_node src/pigeon_msg_sub.cpp)
-add_dependencies(pigeon_msg_sub_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(pigeon_msg_sub_node ${catkin_LIBRARIES})
-
-#msg_tutorial.cpp
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/how_to_msg.cpp
+#   src/${PROJECT_NAME}/basic_class_tutorial.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -141,7 +140,7 @@ target_link_libraries(pigeon_msg_sub_node ${catkin_LIBRARIES})
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/how_to_msg_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/basic_class_tutorial_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -205,7 +204,7 @@ target_link_libraries(pigeon_msg_sub_node ${catkin_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_how_to_msg.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_basic_class_tutorial.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
