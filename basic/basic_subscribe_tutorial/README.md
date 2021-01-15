@@ -2,7 +2,7 @@
 
 
 
-basic_tutorial provides a reference to a simple ROS subscriber node
+basic_subscribe_tutorial provides a reference to a simple ROS subscriber node
 
 ### Run
 
