@@ -1,6 +1,6 @@
 # basic_publish_tutorial
 
-basic_tutorial provides a reference to a simple ROS publisher node
+basic_publish_tutorial provides a reference to a simple ROS publisher node
 
 ### Run
 
