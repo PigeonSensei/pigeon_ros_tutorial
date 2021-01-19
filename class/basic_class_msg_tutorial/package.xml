@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>basic_service_tutorial</name>
+  <name>basic_class_msg_tutorial</name>
   <version>0.1.0</version>
-  <description>The basic_service_tutorial package</description>
+  <description>The basic_class_msg_tutorial package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/basic_service_tutorial</url> -->
+  <!-- <url type="website">http://wiki.ros.org/basic_class_msg_tutorial</url> -->
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
