@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 
     ros::spinOnce();
     loop_rate.sleep();
-    if(ReturnInputKey() == 27) break;
+    if(ReturnInputKey() == 27) break; // Press 'Esc' to exit
   }
 
   ROS_INFO("basic_publish_node Close");
