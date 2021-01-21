@@ -1,7 +1,8 @@
 #include <ros/ros.h>
-
 #include "basic_service_tutorial/Tutorial.h"
 
+#include <termios.h>
+#include <unistd.h>
 
 bool TutorialCommandServiceCallback(basic_service_tutorial::Tutorial::Request &req,
                                     basic_service_tutorial::Tutorial::Response &res)
@@ -30,6 +31,30 @@ bool TutorialCommandServiceCallback(basic_service_tutorial::Tutorial::Request &r
 
 }
 
+int ReturnInputKey()
+{
+  struct termios org_term;
+
+  char input_key = 0;
+
+  tcgetattr(STDIN_FILENO, &org_term);
+
+  struct termios new_term = org_term;
+
+  new_term.c_lflag &= ~(ECHO | ICANON);
+
+  new_term.c_cc[VMIN] = 0;
+  new_term.c_cc[VTIME] = 0;
+
+  tcsetattr(STDIN_FILENO, TCSANOW, &new_term);
+
+  read(STDIN_FILENO, &input_key, 1);
+
+  tcsetattr(STDIN_FILENO, TCSANOW, &org_term);
+
+  return input_key;
+}
+
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "basic_service_node");
@@ -46,6 +71,7 @@ int main(int argc, char **argv)
   {
     ros::spinOnce();
     loop_rate.sleep();
+    if(ReturnInputKey() == 27) break;
   }
 
   ROS_INFO("basic_service_node Close");

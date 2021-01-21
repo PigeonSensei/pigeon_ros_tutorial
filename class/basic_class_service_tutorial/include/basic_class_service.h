@@ -22,8 +22,6 @@ public:
           ROS_INFO("basic_class_service_nocd Close");
        }
 
-    int ReturnInputKey();
-
     bool TutorialCommandServiceCallback(basic_class_service_tutorial::Tutorial::Request &req,
                       basic_class_service_tutorial::Tutorial::Response &res);
     bool Update();

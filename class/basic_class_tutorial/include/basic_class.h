@@ -20,8 +20,6 @@ public:
           ROS_INFO("basic_class_node Close");
        }
 
-    int ReturnInputKey();
-
     bool Update();
 
 private:

@@ -22,8 +22,6 @@ public:
           ROS_INFO("basic_class_msg_node Close");
        }
 
-    int ReturnInputKey();
-
     bool UpdateTutorialMsg();
 
     bool Publisher();

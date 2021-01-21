@@ -21,8 +21,6 @@ public:
           ROS_INFO("Basic_class_subscribe_node Close");
        }
 
-    int ReturnInputKey();
-
     void CmdVelCallback(const geometry_msgs::Twist &cmd_vel);
 
     bool Update();

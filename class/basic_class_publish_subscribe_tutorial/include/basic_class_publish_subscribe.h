@@ -37,8 +37,6 @@ public:
           ROS_INFO("basic_class_publish_subscribe_node Close");
        }
 
-    int ReturnInputKey();
-
     void CmdVelCallback(const geometry_msgs::Twist &cmd_vel);
 
     bool UpdateOdom();

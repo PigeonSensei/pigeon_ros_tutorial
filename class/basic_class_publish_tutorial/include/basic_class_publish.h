@@ -21,8 +21,6 @@ public:
           ROS_INFO("Basic_class_pubilsh_node Close");
        }
 
-    int ReturnInputKey();
-
     bool UpdateCmdVel();
 
     bool Publisher();
