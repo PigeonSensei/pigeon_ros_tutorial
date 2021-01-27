@@ -56,7 +56,7 @@ public:
 
     std::string SetLogFile(std::string log_file_path, std::string log_file_name);
 
-    bool WriteLogFile(std::string log);
+    bool WriteLogFile(std::string text);
 
     std::string WriteLogText();
 

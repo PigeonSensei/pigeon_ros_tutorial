@@ -14,7 +14,6 @@ void Log_file_write::CmdVelCallback(const geometry_msgs::Twist &cmd_vel)
 bool Log_file_write::LogFileManagerServiceCallback(log_file_write_tutorial::LogFileCommandRequest &req, log_file_write_tutorial::LogFileCommandResponse &res)
 {
 
-
   if(req.command == "reset")
   {
       ROS_INFO("Receive Service call logfile_manager command : reset");
@@ -62,16 +61,15 @@ bool Log_file_write::LogFileManager()
     std::system(command.str().c_str());
   }
 
-  else if (log_file_manager_trigger_ == 1)
+  else if (log_file_manager_trigger_ == 1) // save
   {
     log_text_.close();
   }
 
-  else if (log_file_manager_trigger_ == 2)
+  else if (log_file_manager_trigger_ == 2) // remove all
   {
     log_text_.close();
     command << "rm " << log_file_path_ << "/" << log_file_name_ << "*" << std::endl;
-    std::cout << command.str() << std::endl;
     std::system(command.str().c_str());
 
   }
