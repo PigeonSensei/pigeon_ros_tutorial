@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<launch>
+  <param name="log_file_path" value="$(find log_file_write_tutorial)"/>
+  <param name="log_file_name" value="TutorialLogFile"/>
+  <node pkg="log_file_write_tutorial" type="log_file_write_node" name="log_file_write_node" respawn="false" output="screen">
+  </node>
+</launch>
+

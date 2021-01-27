@@ -71,8 +71,8 @@ int main(int argc, char **argv)
   {
 
     basic_class_service.Update();
-    loop_rate.sleep();
     ros::spinOnce();
+    loop_rate.sleep();
     if(ReturnInputKey() == 27) break; // Press 'Esc' to exit
   }
 }

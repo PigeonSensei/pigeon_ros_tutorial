@@ -5,7 +5,7 @@ void Basic_class_pubilsh_subscribe::CmdVelCallback(const geometry_msgs::Twist &c
   Scmd_vel_.linear_x = cmd_vel.linear.x;
   Scmd_vel_.linear_y = cmd_vel.linear.y;
   Scmd_vel_.linear_z = cmd_vel.linear.z;
-  Scmd_vel_.angular_y = cmd_vel.angular.x;
+  Scmd_vel_.angular_x = cmd_vel.angular.x;
   Scmd_vel_.angular_y = cmd_vel.angular.y;
   Scmd_vel_.angular_z = cmd_vel.angular.z;
   ROS_INFO("subscribd cmd_vel : linear.x = %.3f , angular.z = %.3f", cmd_vel.linear.x, cmd_vel.angular.z);
@@ -15,7 +15,7 @@ void Basic_class_pubilsh_subscribe::CmdVelCallback(const geometry_msgs::Twist &c
 
 bool Basic_class_pubilsh_subscribe::UpdateOdom()
 {
-  odom_.header.stamp = time_now;
+  odom_.header.stamp = time_now_;
   odom_.header.frame_id = "odom";
   odom_.child_frame_id = "base_link";
   odom_.header.seq = seq_count;
@@ -28,7 +28,7 @@ bool Basic_class_pubilsh_subscribe::UpdateOdom()
 bool Basic_class_pubilsh_subscribe::SetOdomTF()
 {
   geometry_msgs::TransformStamped odom_trans;
-  odom_trans.header.stamp = time_now;
+  odom_trans.header.stamp = time_now_;
   odom_trans.header.frame_id = "odom";
   odom_trans.child_frame_id = "base_link";
 
@@ -39,7 +39,7 @@ bool Basic_class_pubilsh_subscribe::SetOdomTF()
   odom_trans.transform.rotation.y = 0;
   odom_trans.transform.rotation.z = 0;
   odom_trans.transform.rotation.w = 1;
-  odom_broadcaster.sendTransform(odom_trans);
+  odom_broadcaster_.sendTransform(odom_trans);
 }
 
 bool Basic_class_pubilsh_subscribe::Publisher()
@@ -52,7 +52,7 @@ bool Basic_class_pubilsh_subscribe::Publisher()
 
 bool Basic_class_pubilsh_subscribe::Update()
 {
-  time_now = ros::Time::now();
+  time_now_ = ros::Time::now();
   SetOdomTF();
   UpdateOdom();
   Publisher();
@@ -96,8 +96,8 @@ int main(int argc, char **argv)
   while (ros::ok())
   {
     basic_class_pubilsh_subscribe.Update();
-    loop_rate.sleep();
     ros::spinOnce();
+    loop_rate.sleep();
     if(ReturnInputKey() == 27) break; // Press 'Esc' to exit
   }
 

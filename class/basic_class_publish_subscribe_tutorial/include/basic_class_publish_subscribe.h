@@ -49,12 +49,12 @@ public:
 
 private:
     nav_msgs::Odometry odom_;
-    tf::TransformBroadcaster odom_broadcaster;
+    tf::TransformBroadcaster odom_broadcaster_;
     ros::Subscriber subscriber_cmd_vel_;
     ros::Publisher publisher_odom_;
     CmdVel Scmd_vel_;
 
-    ros::Time time_now;
+    ros::Time time_now_;
     unsigned int seq_count = 0;
 
 };

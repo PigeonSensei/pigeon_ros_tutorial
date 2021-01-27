@@ -42,8 +42,8 @@ int main(int argc, char **argv)
   while (ros::ok())
   {
     basic_class.Update();
-    loop_rate.sleep();
     ros::spinOnce();
+    loop_rate.sleep();
     if(ReturnInputKey() == 27) break; // Press 'Esc' to exit
   }
 
