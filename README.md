@@ -10,7 +10,7 @@ Provides a reference for ROS Robot Programming
   - basic_tutorial
   - basic_publish_tutorial
   - basic_subscribe_tutorial
-  - basic_service_tutorial
+  - basic_service_server_tutorial
   - basic_msg_tutorial
 
 - #### class
@@ -19,7 +19,7 @@ Provides a reference for ROS Robot Programming
   - basic_class_tutorial
   - basic_class_publish_tutorial
   - basic_class_subscribe_tutorial
-  - basic_class_service_tutorial
+  - basic_class_service_server_tutorial
   - basic_class_publish_subscribe_tutorial
   - basic_class_msg_tutorial
 

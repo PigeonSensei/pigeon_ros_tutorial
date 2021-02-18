@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(basic_service_tutorial)
+project(basic_class_service_server_tutorial)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -100,8 +100,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-  LIBRARIES basic_service_tutorial
+  INCLUDE_DIRS include
+  LIBRARIES basic_class_service_server_tutorial
   CATKIN_DEPENDS roscpp message_generation std_msgs
 #  DEPENDS system_lib
 )
@@ -113,18 +113,17 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-#  include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(basic_service_node src/basic_service.cpp)
-add_dependencies(basic_service_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(basic_service_node ${catkin_LIBRARIES})
-
+add_executable(basic_class_service_server_node src/basic_class_service_server.cpp)
+add_dependencies(basic_class_service_server_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(basic_class_service_server_node ${catkin_LIBRARIES})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/basic_service_tutorial.cpp
+#   src/${PROJECT_NAME}/basic_class_service_tutorial.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -135,7 +134,7 @@ target_link_libraries(basic_service_node ${catkin_LIBRARIES})
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/basic_service_tutorial_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/basic_class_service_tutorial_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -199,7 +198,7 @@ target_link_libraries(basic_service_node ${catkin_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_basic_service_tutorial.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_basic_class_service_tutorial.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

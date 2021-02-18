@@ -1,11 +1,11 @@
 #include <ros/ros.h>
-#include "basic_service_tutorial/Tutorial.h"
+#include "basic_service_server_tutorial/Tutorial.h"
 
 #include <termios.h>
 #include <unistd.h>
 
-bool TutorialCommandServiceCallback(basic_service_tutorial::Tutorial::Request &req,
-                                    basic_service_tutorial::Tutorial::Response &res)
+bool TutorialCommandServiceCallback(basic_service_server_tutorial::Tutorial::Request &req,
+                                    basic_service_server_tutorial::Tutorial::Response &res)
 {
   if(req.command == "tutorial 1")
   {
@@ -57,10 +57,10 @@ int ReturnInputKey()
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "basic_service_node");
+  ros::init(argc, argv, "basic_service_server_node");
   ros::NodeHandle n;
 
-  ROS_INFO("basic_service_node Open");
+  ROS_INFO("basic_service_server_node Open");
 
   ros::ServiceServer service_server;
   service_server = n.advertiseService("tutorial_command", TutorialCommandServiceCallback);
@@ -74,7 +74,7 @@ int main(int argc, char **argv)
     if(ReturnInputKey() == 27) break; // Press 'Esc' to exit
   }
 
-  ROS_INFO("basic_service_node Close");
+  ROS_INFO("basic_service_server_node Close");
 
   return 0;
 

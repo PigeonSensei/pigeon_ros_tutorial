@@ -1,6 +1,6 @@
-#include "basic_class_service.h"
+#include "basic_class_service_server.h"
 
-bool Basic_class_service::TutorialCommandServiceCallback(basic_class_service_tutorial::Tutorial::Request &req, basic_class_service_tutorial::Tutorial::Response &res)
+bool Basic_class_service_server::TutorialCommandServiceCallback(basic_class_service_server_tutorial::Tutorial::Request &req, basic_class_service_server_tutorial::Tutorial::Response &res)
 {
   if(req.command == "tutorial 1")
   {
@@ -26,7 +26,7 @@ bool Basic_class_service::TutorialCommandServiceCallback(basic_class_service_tut
 
 }
 
-bool Basic_class_service::Update()
+bool Basic_class_service_server::Update()
 {
   return true;
 }
@@ -57,7 +57,7 @@ int ReturnInputKey()
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "basic_class_service_node");
+  ros::init(argc, argv, "basic_class_service_server_node");
   ros::NodeHandle n;
 
 
@@ -65,12 +65,12 @@ int main(int argc, char **argv)
   ros::Rate loop_rate(60);
   ROS_INFO("IN");
 
-  Basic_class_service basic_class_service(n);
+  Basic_class_service_server basic_class_service_server(n);
 
   while (ros::ok())
   {
 
-    basic_class_service.Update();
+    basic_class_service_server.Update();
     ros::spinOnce();
     loop_rate.sleep();
     if(ReturnInputKey() == 27) break; // Press 'Esc' to exit
