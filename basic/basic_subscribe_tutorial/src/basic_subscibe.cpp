@@ -40,8 +40,8 @@ int main(int argc, char **argv)
 
   ROS_INFO("basic_subscibe_node Open");
 
-  ros::Subscriber subscriber_cmd_vel_;
-  subscriber_cmd_vel_ = n.subscribe("cmd_vel", 1000, CmdVelCallback);
+  ros::Subscriber subscriber_cmd_vel;
+  subscriber_cmd_vel = n.subscribe("cmd_vel", 1000, CmdVelCallback);
 
   ros::Rate loop_rate(60);
 
