@@ -11,7 +11,7 @@ class Basic_class_service_server
 {
 public:
     Basic_class_service_server(ros::NodeHandle &n)
-      : service_server_(n.advertiseService("tutorial_command", &Basic_class_service_server::TutorialCommandServiceCallback, this))
+      : service_server_tutorial_command_(n.advertiseService("tutorial_command", &Basic_class_service_server::TutorialCommandServiceCallback, this))
        {
           // open run
           ROS_INFO("basic_class_service_server_node Open");
@@ -27,7 +27,7 @@ public:
     bool Update();
 
 private:
-    ros::ServiceServer service_server_;
+    ros::ServiceServer service_server_tutorial_command_;
 
 };
 
