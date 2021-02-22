@@ -13,7 +13,7 @@ bool Basic_class_client::TutorialCommandServiceCall()
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "basic_class_client_node");
+  ros::init(argc, argv, "basic_class_service_client_node");
   ros::NodeHandle n;
 
   Basic_class_client basic_class_client(n);

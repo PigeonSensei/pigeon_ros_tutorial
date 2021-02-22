@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>basic_client_tutorial</name>
-  <version>0.1.0</version>
-  <description>The basic_client_tutorial package</description>
+  <name>basic_class_service_client_tutorial</name>
+  <version>0.0.0</version>
+  <description>The basic_class_service_client_tutorial package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
@@ -13,13 +13,13 @@
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
-  <license>Apache 2.0</license>
+  <license>TODO</license>
 
 
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/basic_client_tutorial</url> -->
+  <!-- <url type="website">http://wiki.ros.org/basic_class_service_client_tutorial</url> -->
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
@@ -51,14 +51,13 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>roscpp</build_depend>
-  <build_depend>basic_service_server_tutorial</build_depend>
+  <build_depend>basic_class_service_server_tutorial</build_depend>
 
   <build_export_depend>roscpp</build_export_depend>
-  <build_export_depend>basic_service_server_tutorial</build_export_depend>
+  <build_export_depend>basic_class_service_server_tutorial</build_export_depend>
 
   <exec_depend>roscpp</exec_depend>
-  <exec_depend>basic_service_server_tutorial</exec_depend>
-
+  <exec_depend>basic_class_service_server_tutorial</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->

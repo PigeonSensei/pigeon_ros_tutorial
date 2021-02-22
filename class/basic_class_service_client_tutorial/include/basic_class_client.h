@@ -15,12 +15,12 @@ public:
       : service_client_tutorial_command_(n.serviceClient<basic_class_service_server_tutorial::Tutorial>("tutorial_command"))
        {
           // open run
-          ROS_INFO("basic_class_client_node Open");
+          ROS_INFO("basic_class_service_client_node Open");
        }
        ~Basic_class_client()
        {
           // close run
-          ROS_INFO("basic_class_client_node Close");
+          ROS_INFO("basic_class_service_client_node Close");
        }
 
     bool Update();
