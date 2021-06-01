@@ -13,6 +13,7 @@ Provides a reference for ROS Robot Programming
   - basic_service_server_tutorial
   - basic_service_client_tutorial
   - basic_msg_tutorial
+  - basic_parameta_tutorial
 
 - #### class
 
