@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+<!--rosrun basic_parameta_tutorial basic_private_parameta_node-->
+<node pkg="basic_parameta_tutorial" type="basic_private_parameta_node" name="basic_private_parameta_node" respawn="true" output="screen">
+  <param name="ParametaString" value="pigeon" type="string"/>
+  <param name="ParametaInt" value="9" type="int"/>
+  <param name="ParametaDouble" value="0.9" type="double"/>
+  <param name="ParametaBool" value="true" type="bool"/>
+  <rosparam param="ParametaArrayInt"> [0, 1, 2, 3, 4] </rosparam>
+  <rosparam param="ParametaArrayDouble"> [0.0, 0.1, 0.2, 0.3,0.4] </rosparam>
+  <rosparam param="ParametaArrayString"> [Pigone, Dove] </rosparam>
+</node>
+</launch>
