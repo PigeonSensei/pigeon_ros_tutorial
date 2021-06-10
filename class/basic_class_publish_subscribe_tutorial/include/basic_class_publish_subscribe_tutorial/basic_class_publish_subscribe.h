@@ -7,31 +7,19 @@
 #include <tf/transform_broadcaster.h>
 #include <tf/tf.h>
 
-#include <termios.h>
-#include <unistd.h>
 
-struct CmdVel
-{
-  double linear_x = 0;
-  double linear_y = 0;
-  double linear_z = 0;
-  double angular_x = 0;
-  double angular_y = 0;
-  double angular_z = 0;
-};
-
-class Basic_class_pubilsh_subscribe
+class BasicClassPubilshSubscribe
 {
 public:
-    Basic_class_pubilsh_subscribe(ros::NodeHandle &n)
-      : subscriber_cmd_vel_(n.subscribe("cmd_vel", 100, &Basic_class_pubilsh_subscribe::CmdVelCallback, this)),
+    BasicClassPubilshSubscribe(ros::NodeHandle &n)
+      : subscriber_cmd_vel_(n.subscribe("cmd_vel", 100, &BasicClassPubilshSubscribe::CmdVelCallback, this)),
         publisher_odom_(n.advertise<nav_msgs::Odometry>("odom",1000))
 
        {
           // open run
           ROS_INFO("basic_class_publish_subscribe_node Open");
        }
-       ~Basic_class_pubilsh_subscribe()
+       ~BasicClassPubilshSubscribe()
        {
           // close run
           ROS_INFO("basic_class_publish_subscribe_node Close");
@@ -45,9 +33,20 @@ public:
 
     bool Publisher();
 
-    bool Update();
+    void Spin();
 
 private:
+
+    struct CmdVel
+    {
+      double linear_x = 0;
+      double linear_y = 0;
+      double linear_z = 0;
+      double angular_x = 0;
+      double angular_y = 0;
+      double angular_z = 0;
+    };
+
     nav_msgs::Odometry odom_;
     tf::TransformBroadcaster odom_broadcaster_;
     ros::Subscriber subscriber_cmd_vel_;

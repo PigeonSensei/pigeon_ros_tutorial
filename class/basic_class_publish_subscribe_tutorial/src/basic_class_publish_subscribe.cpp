@@ -1,6 +1,6 @@
-#include "basic_class_publish_subscribe.h"
+#include "basic_class_publish_subscribe_tutorial/basic_class_publish_subscribe.h"
 
-void Basic_class_pubilsh_subscribe::CmdVelCallback(const geometry_msgs::Twist &cmd_vel)
+void BasicClassPubilshSubscribe::CmdVelCallback(const geometry_msgs::Twist &cmd_vel)
 {
   Scmd_vel_.linear_x = cmd_vel.linear.x;
   Scmd_vel_.linear_y = cmd_vel.linear.y;
@@ -13,7 +13,7 @@ void Basic_class_pubilsh_subscribe::CmdVelCallback(const geometry_msgs::Twist &c
   return;
 }
 
-bool Basic_class_pubilsh_subscribe::UpdateOdom()
+bool BasicClassPubilshSubscribe::UpdateOdom()
 {
   odom_.header.stamp = time_now_;
   odom_.header.frame_id = "odom";
@@ -25,7 +25,7 @@ bool Basic_class_pubilsh_subscribe::UpdateOdom()
   return true;
 }
 
-bool Basic_class_pubilsh_subscribe::SetOdomTF()
+bool BasicClassPubilshSubscribe::SetOdomTF()
 {
   geometry_msgs::TransformStamped odom_trans;
   odom_trans.header.stamp = time_now_;
@@ -42,7 +42,7 @@ bool Basic_class_pubilsh_subscribe::SetOdomTF()
   odom_broadcaster_.sendTransform(odom_trans);
 }
 
-bool Basic_class_pubilsh_subscribe::Publisher()
+bool BasicClassPubilshSubscribe::Publisher()
 {
   publisher_odom_.publish(odom_);
   seq_count++;
@@ -50,38 +50,12 @@ bool Basic_class_pubilsh_subscribe::Publisher()
   return true;
 }
 
-bool Basic_class_pubilsh_subscribe::Update()
+void BasicClassPubilshSubscribe::Spin()
 {
   time_now_ = ros::Time::now();
   SetOdomTF();
   UpdateOdom();
   Publisher();
-
-  return true;
-}
-
-int ReturnInputKey()
-{
-  struct termios org_term;
-
-  char input_key = 0;
-
-  tcgetattr(STDIN_FILENO, &org_term);
-
-  struct termios new_term = org_term;
-
-  new_term.c_lflag &= ~(ECHO | ICANON);
-
-  new_term.c_cc[VMIN] = 0;
-  new_term.c_cc[VTIME] = 0;
-
-  tcsetattr(STDIN_FILENO, TCSANOW, &new_term);
-
-  read(STDIN_FILENO, &input_key, 1);
-
-  tcsetattr(STDIN_FILENO, TCSANOW, &org_term);
-
-  return input_key;
 }
 
 int main(int argc, char **argv)
@@ -91,14 +65,13 @@ int main(int argc, char **argv)
 
   ros::Rate loop_rate(60);
 
-  Basic_class_pubilsh_subscribe basic_class_pubilsh_subscribe(n);
+  BasicClassPubilshSubscribe basic_class_pubilsh_subscribe(n);
 
   while (ros::ok())
   {
-    basic_class_pubilsh_subscribe.Update();
+    basic_class_pubilsh_subscribe.Spin();
     ros::spinOnce();
     loop_rate.sleep();
-    if(ReturnInputKey() == 27) break; // Press 'Esc' to exit
   }
 
   return 0;

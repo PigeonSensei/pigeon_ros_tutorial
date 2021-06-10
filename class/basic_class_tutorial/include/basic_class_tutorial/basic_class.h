@@ -3,24 +3,21 @@
 
 #include <ros/ros.h>
 
-#include <termios.h>
-#include <unistd.h>
-
-class Basic_class
+class BasicClass
 {
 public:
-    Basic_class(ros::NodeHandle &n)
+    BasicClass(ros::NodeHandle &n)
        {
           // open run
           ROS_INFO("basic_class_node Open");
        }
-       ~Basic_class()
+       ~BasicClass()
        {
           // close run
           ROS_INFO("basic_class_node Close");
        }
 
-    bool Update();
+    void Spin();
 
 private:
 

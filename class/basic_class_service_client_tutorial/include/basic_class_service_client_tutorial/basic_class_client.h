@@ -2,28 +2,24 @@
 #define BASIC_CLASS_CLIENT_H
 
 #include <ros/ros.h>
-
-#include <termios.h>
-#include <unistd.h>
-
 #include "basic_class_service_server_tutorial/Tutorial.h"
 
-class Basic_class_client
+class BasicClassClient
 {
 public:
-    Basic_class_client(ros::NodeHandle &n)
+    BasicClassClient(ros::NodeHandle &n)
       : service_client_tutorial_command_(n.serviceClient<basic_class_service_server_tutorial::Tutorial>("tutorial_command"))
        {
           // open run
           ROS_INFO("basic_class_service_client_node Open");
        }
-       ~Basic_class_client()
+       ~BasicClassClient()
        {
           // close run
           ROS_INFO("basic_class_service_client_node Close");
        }
 
-    bool Update();
+    void Spin();
 
     bool TutorialCommandServiceCall();
 

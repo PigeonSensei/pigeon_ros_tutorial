@@ -1,62 +1,36 @@
-#include "basic_class_msg.h"
+#include "basic_class_msg_tutorial/basic_class_msg.h"
 
-bool Basic_class_msg::UpdateTutorialMsg()
+bool BasicClassMsg::UpdateTutorialMsg()
 {
-  tutorial_msg_.A = true;
-  tutorial_msg_.B = -1;
-  tutorial_msg_.C = 1;
-  tutorial_msg_.D = -2;
-  tutorial_msg_.E = 2;
-  tutorial_msg_.F = -3;
-  tutorial_msg_.G = 3;
-  tutorial_msg_.H = -4;
-  tutorial_msg_.I = 4;
-  tutorial_msg_.J = -5.5;
-  tutorial_msg_.K = -6.6;
-  tutorial_msg_.L = "Tutorial";
-  tutorial_msg_.M = ros::Time::now();
-  tutorial_msg_.N = ros::Duration(5, 1);
+  tutorial_msg_.Bool = true;
+  tutorial_msg_.Int8 = -1;
+  tutorial_msg_.UInt8 = 1;
+  tutorial_msg_.Int16 = -2;
+  tutorial_msg_.UInt16 = 2;
+  tutorial_msg_.Int32 = -3;
+  tutorial_msg_.UInt32 = 3;
+  tutorial_msg_.Int64 = -4;
+  tutorial_msg_.UInt64 = 4;
+  tutorial_msg_.Float32 = -5.5;
+  tutorial_msg_.Float64 = -6.6;
+  tutorial_msg_.String = "Tutorial";
+  tutorial_msg_.Time = ros::Time::now();
+  tutorial_msg_.Duration = ros::Duration(5, 1);
 
   return true;
 
 }
 
-bool Basic_class_msg::Publisher()
+bool BasicClassMsg::Publisher()
 {
   publisher_tutorial_msg_.publish(tutorial_msg_);
   return true;
 }
 
-bool Basic_class_msg::Update()
+void BasicClassMsg::Spin()
 {
   UpdateTutorialMsg();
   Publisher();
-
-  return true;
-}
-
-int ReturnInputKey()
-{
-  struct termios org_term;
-
-  char input_key = 0;
-
-  tcgetattr(STDIN_FILENO, &org_term);
-
-  struct termios new_term = org_term;
-
-  new_term.c_lflag &= ~(ECHO | ICANON);
-
-  new_term.c_cc[VMIN] = 0;
-  new_term.c_cc[VTIME] = 0;
-
-  tcsetattr(STDIN_FILENO, TCSANOW, &new_term);
-
-  read(STDIN_FILENO, &input_key, 1);
-
-  tcsetattr(STDIN_FILENO, TCSANOW, &org_term);
-
-  return input_key;
 }
 
 int main(int argc, char **argv)
@@ -66,13 +40,12 @@ int main(int argc, char **argv)
 
   ros::Rate loop_rate(60);
 
-  Basic_class_msg basic_class_msg(n);
+  BasicClassMsg basic_class_msg(n);
   while (ros::ok())
   {
-    basic_class_msg.Update();
+    basic_class_msg.Spin();
     ros::spinOnce();
     loop_rate.sleep();
-    if(ReturnInputKey() == 27) break; // Press 'Esc' to exit
   }
 
   return 0;

@@ -4,19 +4,16 @@
 #include <ros/ros.h>
 #include "basic_class_service_server_tutorial/Tutorial.h"
 
-#include <termios.h>
-#include <unistd.h>
-
-class Basic_class_service_server
+class BasicClassServiceServer
 {
 public:
-    Basic_class_service_server(ros::NodeHandle &n)
-      : service_server_tutorial_command_(n.advertiseService("tutorial_command", &Basic_class_service_server::TutorialCommandServiceCallback, this))
+    BasicClassServiceServer(ros::NodeHandle &n)
+      : service_server_tutorial_command_(n.advertiseService("tutorial_command", &BasicClassServiceServer::TutorialCommandServiceCallback, this))
        {
           // open run
           ROS_INFO("basic_class_service_server_node Open");
        }
-       ~Basic_class_service_server()
+       ~BasicClassServiceServer()
        {
           // close run
           ROS_INFO("basic_class_service_server_node Close");
@@ -24,7 +21,7 @@ public:
 
     bool TutorialCommandServiceCallback(basic_class_service_server_tutorial::Tutorial::Request &req,
                       basic_class_service_server_tutorial::Tutorial::Response &res);
-    bool Update();
+    void Spin();
 
 private:
     ros::ServiceServer service_server_tutorial_command_;

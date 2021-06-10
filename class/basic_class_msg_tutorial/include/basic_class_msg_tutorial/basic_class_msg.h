@@ -4,19 +4,16 @@
 #include <ros/ros.h>
 #include "basic_class_msg_tutorial/TutorialMsg.h"
 
-#include <termios.h>
-#include <unistd.h>
-
-class Basic_class_msg
+class BasicClassMsg
 {
 public:
-    Basic_class_msg(ros::NodeHandle &n)
+    BasicClassMsg(ros::NodeHandle &n)
       : publisher_tutorial_msg_(n.advertise<basic_class_msg_tutorial::TutorialMsg>("tutorial_msg",1000))
        {
           // open run
           ROS_INFO("basic_class_msg_node Open");
        }
-       ~Basic_class_msg()
+       ~BasicClassMsg()
        {
           // close run
           ROS_INFO("basic_class_msg_node Close");
@@ -26,7 +23,7 @@ public:
 
     bool Publisher();
 
-    bool Update();
+    void Spin();
 
 private:
     basic_class_msg_tutorial::TutorialMsg tutorial_msg_;

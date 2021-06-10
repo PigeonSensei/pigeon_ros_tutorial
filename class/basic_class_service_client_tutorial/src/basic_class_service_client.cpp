@@ -1,6 +1,6 @@
-#include "basic_class_client.h"
+#include "basic_class_service_client_tutorial/basic_class_client.h"
 
-bool Basic_class_client::TutorialCommandServiceCall()
+bool BasicClassClient::TutorialCommandServiceCall()
 {
   tutorial_command_.request.command = "tutorial 1";
 
@@ -16,7 +16,7 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "basic_class_service_client_node");
   ros::NodeHandle n;
 
-  Basic_class_client basic_class_client(n);
+  BasicClassClient basic_class_client(n);
 
   basic_class_client.TutorialCommandServiceCall();
 

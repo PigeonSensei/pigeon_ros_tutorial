@@ -4,18 +4,16 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 
-#include <termios.h>
-#include <unistd.h>
-class Basic_class_pubilsh
+class BasicClassPubilsh
 {
 public:
-    Basic_class_pubilsh(ros::NodeHandle &n)
+    BasicClassPubilsh(ros::NodeHandle &n)
       : publisher_cmd_vel_(n.advertise<geometry_msgs::Twist>("cmd_vel",1000))
        {
           // open run
           ROS_INFO("Basic_class_pubilsh_node Open");
        }
-       ~Basic_class_pubilsh()
+       ~BasicClassPubilsh()
        {
           // close run
           ROS_INFO("Basic_class_pubilsh_node Close");
@@ -25,7 +23,7 @@ public:
 
     bool Publisher();
 
-    bool Update();
+    void Spin();
 
 private:
     geometry_msgs::Twist cmd_vel_;

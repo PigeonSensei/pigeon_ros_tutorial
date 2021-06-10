@@ -3,19 +3,16 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 
-#include <termios.h>
-#include <unistd.h>
-
-class Basic_class_subscribe
+class BasicClassSubscribe
 {
 public:
-    Basic_class_subscribe(ros::NodeHandle &n)
-      : subscriber_cmd_vel_(n.subscribe("cmd_vel", 100, &Basic_class_subscribe::CmdVelCallback, this))
+    BasicClassSubscribe(ros::NodeHandle &n)
+      : subscriber_cmd_vel_(n.subscribe("cmd_vel", 100, &BasicClassSubscribe::CmdVelCallback, this))
        {
           // open run
           ROS_INFO("Basic_class_subscribe_node Open");
        }
-       ~Basic_class_subscribe()
+       ~BasicClassSubscribe()
        {
           // close run
           ROS_INFO("Basic_class_subscribe_node Close");
@@ -23,7 +20,7 @@ public:
 
     void CmdVelCallback(const geometry_msgs::Twist &cmd_vel);
 
-    bool Update();
+    void Spin();
 
 private:
     ros::Subscriber subscriber_cmd_vel_;
