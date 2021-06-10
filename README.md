@@ -14,6 +14,7 @@ Provides a reference for ROS Robot Programming
   - basic_service_client_tutorial
   - basic_msg_tutorial
   - basic_parameta_tutorial
+  - basic_dynamic_reconfigure_tutorial
 
 - #### class
 
@@ -25,5 +26,6 @@ Provides a reference for ROS Robot Programming
   - basic_class_service_client_tutorial
   - basic_class_publish_subscribe_tutorial
   - basic_class_msg_tutorial
+  - basic_class_dynamic_reconfigure_tutorial
 
   
