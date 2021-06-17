@@ -10,6 +10,6 @@
 <rosparam param="ParametaArrayString"> [Pigone, Dove] </rosparam>
 
 <!--rosrun basic_parameta_tutorial basic_parameta_node-->
-<node pkg="basic_parameta_tutorial" type="basic_parameta_node" name="basic_parameta_node" respawn="true" output="screen"/>
+<node pkg="basic_parameta_tutorial" type="basic_global_parameta_node" name="basic_global_parameta_node" respawn="true" output="screen"/>
 
 </launch>
