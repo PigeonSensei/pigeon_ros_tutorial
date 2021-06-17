@@ -39,9 +39,6 @@ int main(int argc, char **argv)
 
   }
 
-  parameta_array_int.clear();
-  parameta_array_double.clear();
-  parameta_array_string.clear();
   std::vector<int>().swap(parameta_array_int);
   std::vector<double>().swap(parameta_array_double);
   std::vector<std::string>().swap(parameta_array_string);
