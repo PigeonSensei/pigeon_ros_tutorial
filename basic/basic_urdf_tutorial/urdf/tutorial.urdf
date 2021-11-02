@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<robot name="Tutorial">
+
+  <link name="tutorial_link"/>
+  <link name="tutorial_link2"/>
+  <link name="tutorial_link3"/>
+
+  <joint name="joint1" type="fixed">
+    <parent link="tutorial_link" />
+    <child link="tutorial_link2" />
+    <origin rpy="0 0 0" xyz="1.0 1.0 1.0" />
+  </joint>
+
+  <joint name="joint2" type="fixed">
+    <parent link="tutorial_link" />
+    <child link="tutorial_link3" />
+   <origin rpy="3.141592 0 0" xyz="-1.0 -1.0 1.0" />
+  </joint>
+
+</robot>
