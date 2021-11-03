@@ -32,6 +32,6 @@ rviz
 
 -----
 
-For more information on how to write A, please refer to the link below
+For more information on how to write urdf, please refer to the link below
 
 - [urdf Tutorial](http://wiki.ros.org/urdf/Tutorials)
