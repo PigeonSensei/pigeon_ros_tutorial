@@ -9,4 +9,4 @@ rosrun basic_class_publish_tutorial basic_class_publish_node
 ```
 
 ### Published Topics
-- cmd_vel
+- **cmd_vel** ([geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html))
