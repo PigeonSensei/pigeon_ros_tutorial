@@ -11,13 +11,13 @@ rosrun basic_class_dynamic_reconfigure_tutorial basic_class_dynamic_reconfigure_
 ### Parameters
 Dynamically Reconfigurable Parameters
 
-~ param_int (int, defalut: 1, Range: -9 to 9)
+~ **param_int** (int, defalut: 1, Range: -9 to 9)
 
-~ param_double (double, default: 1.0, Range: -9.9 to 9.9)
+~ **param_double** (double, default: 1.0, Range: -9.9 to 9.9)
 
-~ param_string (string, defalut: "Pigeon")
+~ **param_string** (string, defalut: "Pigeon")
 
-~ param_bool (bool, default: True)
+~ **param_bool** (bool, default: True)
 
 
 ## Run together to see parameter dynamic changes
