@@ -9,7 +9,7 @@ rosrun basic_class_publish_subscribe_tutorial basic_class_publish_subscribe_node
 ```
 
 ### Subscribed Topics
-- cmd_vel
+- **cmd_vel** ([geometry_msgs/Twist](http://docs.ros.org/en/melodic/api/geometry_msgs/html/msg/Twist.html))
 
 ### Published Topics
-- odom
+- **odom** ([nav_msgs/Odometry](http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html))
