@@ -12,13 +12,13 @@ roslaunch basic_parameta_tutorial global_parameta_tutorial.launch
 
 ### Parameters
 
-- ParametaString (string, default: "Non")
-- ParametaInt (int, , default: 0)
-- ParametaDouble (double, defalut: 0.0)
-- ParametaBool (bool, defalut: false)
-- ParametaArrayInt (std::vector<int>, defalut: [0])
-- ParametaArrayDouble (std::vector<dobule>, defalut: [0.0])
-- ParametaArrayString (std::vector<string>, defalut: ["Non"]) 
+- **ParametaString** (string, default: "Non")
+- **ParametaInt** (int, , default: 0)
+- **ParametaDouble** (double, defalut: 0.0)
+- **ParametaBool** (bool, defalut: false)
+- **ParametaArrayInt** (std::vector<int>, defalut: [0])
+- **ParametaArrayDouble** (std::vector<dobule>, defalut: [0.0])
+- **ParametaArrayString** (std::vector<string>, defalut: ["Non"]) 
 
 ## private_parameta_tutorial
 
@@ -30,11 +30,11 @@ roslaunch basic_parameta_tutorial private_parameta_tutorial.launch
 
 ### Parameters
 
-- ~ParametaString (string, default: "Non")
-- ~ParametaInt (int, , default: 0)
-- ~ParametaDouble (double, defalut: 0.0)
-- ~ParametaBool (bool, defalut: false)
-- ~ParametaArrayInt (std::vector<int>, defalut: [0])
-- ~ParametaArrayDouble (std::vector<dobule>, defalut: [0.0])
-- ~ParametaArrayString (std::vector<string>, defalut: ["Non"]) 
+- ~**ParametaString** (string, default: "Non")
+- ~**ParametaInt** (int, , default: 0)
+- ~**ParametaDouble** (double, defalut: 0.0)
+- ~**ParametaBool** (bool, defalut: false)
+- ~**ParametaArrayInt** (std::vector<int>, defalut: [0])
+- ~**ParametaArrayDouble** (std::vector<dobule>, defalut: [0.0])
+- ~**ParametaArrayString** (std::vector<string>, defalut: ["Non"]) 
 
