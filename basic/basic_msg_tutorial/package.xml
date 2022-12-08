@@ -4,12 +4,9 @@
   <version>0.1.0</version>
   <description>The basic_msg_tutorial package</description>
 
-
   <maintainer email="parkour5813@gmail.com">PigeonSensei</maintainer>
 
-
   <license>MIT</license>
-
 
   <buildtool_depend>catkin</buildtool_depend>
 

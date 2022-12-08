@@ -6,9 +6,7 @@
 
   <maintainer email="parkour5813@gmail.com">PigeonSensei</maintainer>
 
-
   <license>MIT</license>
-
 
   <buildtool_depend>catkin</buildtool_depend>
 
@@ -24,7 +22,6 @@
   <exec_depend>message_generation</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>message_runtime</exec_depend>
-
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

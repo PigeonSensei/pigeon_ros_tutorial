@@ -8,7 +8,9 @@ project(basic_service_server_tutorial)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp message_generation std_msgs
+  roscpp
+  message_generation
+  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -118,9 +120,8 @@ include_directories(
 )
 
 add_executable(basic_service_server_node src/basic_service_server.cpp)
-add_dependencies(basic_service_server_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(basic_service_server_node ${catkin_LIBRARIES})
-
+add_dependencies(basic_service_server_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
