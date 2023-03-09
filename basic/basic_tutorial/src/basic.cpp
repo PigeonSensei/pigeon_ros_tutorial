@@ -5,7 +5,14 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "basic_node");
   ros::NodeHandle n;
 
-  ROS_INFO("Hello world!");
+  ros::Rate loop_rate(60);
+
+  while (ros::ok())
+  {
+    ROS_INFO("Hello world!");
+    ros::spinOnce();
+    loop_rate.sleep();
+  }
 
   return 0;
 }
