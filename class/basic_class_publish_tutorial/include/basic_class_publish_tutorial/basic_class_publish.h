@@ -19,9 +19,9 @@ public:
           ROS_INFO("Basic_class_pubilsh_node Close");
        }
 
-    bool UpdateCmdVel();
+    void UpdateCmdVel();
 
-    bool Publisher();
+    void Publisher();
 
     void Spin();
 

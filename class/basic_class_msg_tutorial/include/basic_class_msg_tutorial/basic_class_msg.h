@@ -19,9 +19,9 @@ public:
           ROS_INFO("basic_class_msg_node Close");
        }
 
-    bool UpdateTutorialMsg();
+    void UpdateTutorialMsg();
 
-    bool Publisher();
+    void Publisher();
 
     void Spin();
 

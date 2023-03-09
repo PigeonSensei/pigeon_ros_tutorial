@@ -1,17 +1,14 @@
 #include "basic_class_publish_tutorial/basic_class_publish.h"
 
-bool BasicClassPubilsh::UpdateCmdVel()
+void BasicClassPubilsh::UpdateCmdVel()
 {
   cmd_vel_.linear.x = 10;
   cmd_vel_.angular.z = 10;
-
-  return true;
 }
 
-bool BasicClassPubilsh::Publisher()
+void BasicClassPubilsh::Publisher()
 {
   publisher_cmd_vel_.publish(cmd_vel_);
-  return true;
 }
 
 void BasicClassPubilsh::Spin()

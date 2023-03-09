@@ -27,11 +27,11 @@ public:
 
     void CmdVelCallback(const geometry_msgs::Twist &cmd_vel);
 
-    bool UpdateOdom();
+    void UpdateOdom();
 
-    bool SetOdomTF();
+    void SetOdomTF();
 
-    bool Publisher();
+    void Publisher();
 
     void Spin();
 

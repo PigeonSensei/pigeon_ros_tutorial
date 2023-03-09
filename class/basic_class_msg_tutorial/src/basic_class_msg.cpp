@@ -1,6 +1,6 @@
 #include "basic_class_msg_tutorial/basic_class_msg.h"
 
-bool BasicClassMsg::UpdateTutorialMsg()
+void BasicClassMsg::UpdateTutorialMsg()
 {
   tutorial_msg_.Bool = true;
   tutorial_msg_.Int8 = -1;
@@ -17,14 +17,11 @@ bool BasicClassMsg::UpdateTutorialMsg()
   tutorial_msg_.Time = ros::Time::now();
   tutorial_msg_.Duration = ros::Duration(5, 1);
 
-  return true;
-
 }
 
-bool BasicClassMsg::Publisher()
+void BasicClassMsg::Publisher()
 {
   publisher_tutorial_msg_.publish(tutorial_msg_);
-  return true;
 }
 
 void BasicClassMsg::Spin()

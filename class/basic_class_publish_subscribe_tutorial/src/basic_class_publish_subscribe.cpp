@@ -9,11 +9,9 @@ void BasicClassPubilshSubscribe::CmdVelCallback(const geometry_msgs::Twist &cmd_
   Scmd_vel_.angular_y = cmd_vel.angular.y;
   Scmd_vel_.angular_z = cmd_vel.angular.z;
   ROS_INFO("subscribd cmd_vel : linear.x = %.3f , angular.z = %.3f", cmd_vel.linear.x, cmd_vel.angular.z);
-
-  return;
 }
 
-bool BasicClassPubilshSubscribe::UpdateOdom()
+void BasicClassPubilshSubscribe::UpdateOdom()
 {
   odom_.header.stamp = time_now_;
   odom_.header.frame_id = "odom";
@@ -21,11 +19,9 @@ bool BasicClassPubilshSubscribe::UpdateOdom()
   odom_.header.seq = seq_count;
   odom_.twist.twist.linear.x = Scmd_vel_.linear_x;
   odom_.twist.twist.angular.z = Scmd_vel_.angular_z;
-
-  return true;
 }
 
-bool BasicClassPubilshSubscribe::SetOdomTF()
+void BasicClassPubilshSubscribe::SetOdomTF()
 {
   geometry_msgs::TransformStamped odom_trans;
   odom_trans.header.stamp = time_now_;
@@ -42,12 +38,10 @@ bool BasicClassPubilshSubscribe::SetOdomTF()
   odom_broadcaster_.sendTransform(odom_trans);
 }
 
-bool BasicClassPubilshSubscribe::Publisher()
+void BasicClassPubilshSubscribe::Publisher()
 {
   publisher_odom_.publish(odom_);
   seq_count++;
-
-  return true;
 }
 
 void BasicClassPubilshSubscribe::Spin()
