@@ -1,9 +1,9 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 
-void CmdVelCallback(const geometry_msgs::Twist &cmd_vel)
+void CmdVelCallback(const geometry_msgs::Twist::ConstPtr& cmd_vel)
 {
-  ROS_INFO("subscribd cmd_vel : linear.x = %.3f , angular.z = %.3f", cmd_vel.linear.x, cmd_vel.angular.z);
+  ROS_INFO("subscribe cmd_vel : linear.x = %.3f , angular.z = %.3f", cmd_vel->linear.x, cmd_vel->angular.z);
 }
 
 int main(int argc, char **argv)

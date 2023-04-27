@@ -25,7 +25,7 @@ public:
           ROS_INFO("basic_class_publish_subscribe_node Close");
        }
 
-    void CmdVelCallback(const geometry_msgs::Twist &cmd_vel);
+    void CmdVelCallback(const geometry_msgs::Twist::ConstPtr& cmd_vel);
 
     void UpdateOdom();
 
@@ -54,7 +54,7 @@ private:
     CmdVel Scmd_vel_;
 
     ros::Time time_now_;
-    unsigned int seq_count = 0;
+    unsigned int seq_count_ = 0;
 
 };
 

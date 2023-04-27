@@ -1,14 +1,14 @@
 #include "basic_class_publish_subscribe_tutorial/basic_class_publish_subscribe.h"
 
-void BasicClassPubilshSubscribe::CmdVelCallback(const geometry_msgs::Twist &cmd_vel)
+void BasicClassPubilshSubscribe::CmdVelCallback(const geometry_msgs::Twist::ConstPtr& cmd_vel)
 {
-  Scmd_vel_.linear_x = cmd_vel.linear.x;
-  Scmd_vel_.linear_y = cmd_vel.linear.y;
-  Scmd_vel_.linear_z = cmd_vel.linear.z;
-  Scmd_vel_.angular_x = cmd_vel.angular.x;
-  Scmd_vel_.angular_y = cmd_vel.angular.y;
-  Scmd_vel_.angular_z = cmd_vel.angular.z;
-  ROS_INFO("subscribd cmd_vel : linear.x = %.3f , angular.z = %.3f", cmd_vel.linear.x, cmd_vel.angular.z);
+  Scmd_vel_.linear_x = cmd_vel->linear.x;
+  Scmd_vel_.linear_y = cmd_vel->linear.y;
+  Scmd_vel_.linear_z = cmd_vel->linear.z;
+  Scmd_vel_.angular_x = cmd_vel->angular.x;
+  Scmd_vel_.angular_y = cmd_vel->angular.y;
+  Scmd_vel_.angular_z = cmd_vel->angular.z;
+  ROS_INFO("subscribe cmd_vel : linear.x = %.3f , angular.z = %.3f", cmd_vel->linear.x, cmd_vel->angular.z);
 }
 
 void BasicClassPubilshSubscribe::UpdateOdom()
@@ -16,7 +16,7 @@ void BasicClassPubilshSubscribe::UpdateOdom()
   odom_.header.stamp = time_now_;
   odom_.header.frame_id = "odom";
   odom_.child_frame_id = "base_link";
-  odom_.header.seq = seq_count;
+  odom_.header.seq = seq_count_;
   odom_.twist.twist.linear.x = Scmd_vel_.linear_x;
   odom_.twist.twist.angular.z = Scmd_vel_.angular_z;
 }
@@ -41,7 +41,7 @@ void BasicClassPubilshSubscribe::SetOdomTF()
 void BasicClassPubilshSubscribe::Publisher()
 {
   publisher_odom_.publish(odom_);
-  seq_count++;
+  seq_count_++;
 }
 
 void BasicClassPubilshSubscribe::Spin()
