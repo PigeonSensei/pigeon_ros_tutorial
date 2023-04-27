@@ -119,8 +119,8 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(basic_subscibe_node src/basic_subscibe.cpp)
-target_link_libraries(basic_subscibe_node ${catkin_LIBRARIES})
+add_executable(basic_subscribe_node src/basic_subscribe.cpp)
+target_link_libraries(basic_subscribe_node ${catkin_LIBRARIES})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
