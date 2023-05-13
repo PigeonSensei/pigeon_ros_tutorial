@@ -9,8 +9,7 @@ project(basic_msg_tutorial)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  message_generation
-  std_msgs
+  tutorial_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -47,10 +46,10 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-  TutorialMsg.msg
-)
+#add_message_files(
+#  FILES
+#  TutorialMsg.msg
+#)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -67,10 +66,10 @@ add_message_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-  std_msgs
-)
+#generate_messages(
+#  DEPENDENCIES
+#  std_msgs
+#)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -103,8 +102,8 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-  LIBRARIES basic_msg_tutorial
-  CATKIN_DEPENDS message_runtime roscpp message_generation std_msgs
+#  LIBRARIES basic_msg_tutorial
+#  CATKIN_DEPENDS message_runtime roscpp message_generation std_msgs
 #  DEPENDS system_lib
 )
 
@@ -119,9 +118,15 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(basic_msg_node src/basic_msg.cpp)
-target_link_libraries(basic_msg_node ${catkin_LIBRARIES})
-add_dependencies(basic_msg_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_executable(basic_msg_publish_node src/basic_msg_publish.cpp)
+target_link_libraries(basic_msg_publish_node ${catkin_LIBRARIES})
+add_dependencies(basic_msg_publish_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+add_executable(basic_msg_subscribe_node src/basic_msg_subscribe.cpp)
+target_link_libraries(basic_msg_subscribe_node ${catkin_LIBRARIES})
+add_dependencies(basic_msg_subscribe_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
