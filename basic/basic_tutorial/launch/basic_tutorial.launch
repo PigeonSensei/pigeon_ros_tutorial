@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!-- rosrun basic_tutorial basic_node -->
+  <node pkg="basic_tutorial" type="basic_node" name="basic_node" output="screen"/>
+  <node pkg="basic_tutorial" type="basic_node" name="basic_node2" output="screen"/>
+</launch>
