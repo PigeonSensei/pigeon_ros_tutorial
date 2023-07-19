@@ -9,7 +9,7 @@ project(basic_service_client_tutorial)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  basic_service_server_tutorial
+  tutorial_srvs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -119,10 +119,6 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(basic_service_client_node src/basic_service_client.cpp)
-add_dependencies(basic_service_client_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(basic_service_client_node ${catkin_LIBRARIES})
-
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/basic_service_client_tutorial.cpp
@@ -136,7 +132,7 @@ target_link_libraries(basic_service_client_node ${catkin_LIBRARIES})
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/basic_service_client_tutorial.cpp)
+# add_executable(${PROJECT_NAME}_node src/basic_service_client_tutorial_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

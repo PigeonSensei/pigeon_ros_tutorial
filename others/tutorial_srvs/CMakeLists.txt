@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(basic_service_server_tutorial)
+project(tutorial_srvs)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -9,7 +9,8 @@ project(basic_service_server_tutorial)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  tutorial_srvs
+  message_generation
+  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -53,11 +54,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  TutorialSrv.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -67,10 +67,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs  # Or other packages containing msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -103,8 +103,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES basic_service_server_tutorial
-#  CATKIN_DEPENDS roscpp
+#  LIBRARIES tutorial_srvs
+  CATKIN_DEPENDS roscpp message_generation std_msgs message_runtime
 #  DEPENDS system_lib
 )
 
@@ -119,13 +119,9 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(basic_service_server_node src/basic_service_server.cpp)
-target_link_libraries(basic_service_server_node ${catkin_LIBRARIES})
-add_dependencies(basic_service_server_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/basic_service_server_tutorial.cpp
+#   src/${PROJECT_NAME}/tutorial_srvs.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -136,7 +132,7 @@ add_dependencies(basic_service_server_node ${${PROJECT_NAME}_EXPORTED_TARGETS} $
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/basic_service_server_tutorial_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/tutorial_srvs_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -200,7 +196,7 @@ add_dependencies(basic_service_server_node ${${PROJECT_NAME}_EXPORTED_TARGETS} $
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_basic_service_server_tutorial.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_tutorial_srvs.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

@@ -1,6 +1,6 @@
 #include "basic_class_service_server_tutorial/basic_class_service_server.h"
 
-bool BasicClassServiceServer::TutorialCommandServiceCallback(basic_class_service_server_tutorial::Tutorial::Request &req, basic_class_service_server_tutorial::Tutorial::Response &res)
+bool BasicClassServiceServer::TutorialCommandServiceCallback(tutorial_srvs::TutorialSrv::Request &req, tutorial_srvs::TutorialSrv::Response &res)
 {
   if(req.command == "tutorial 1")
   {

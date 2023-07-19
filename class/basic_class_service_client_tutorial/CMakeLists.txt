@@ -9,7 +9,7 @@ project(basic_class_service_client_tutorial)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  basic_class_service_server_tutorial
+  tutorial_srvs
 )
 
 ## System dependencies are found with CMake's conventions

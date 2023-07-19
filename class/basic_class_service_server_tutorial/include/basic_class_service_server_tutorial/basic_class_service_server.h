@@ -2,7 +2,7 @@
 #define BASIC_CLASS_SERVICE_H
 
 #include <ros/ros.h>
-#include "basic_class_service_server_tutorial/Tutorial.h"
+#include "tutorial_srvs/TutorialSrv.h"
 
 class BasicClassServiceServer
 {
@@ -19,8 +19,8 @@ public:
           ROS_INFO("basic_class_service_server_node Close");
        }
 
-    bool TutorialCommandServiceCallback(basic_class_service_server_tutorial::Tutorial::Request &req,
-                      basic_class_service_server_tutorial::Tutorial::Response &res);
+    bool TutorialCommandServiceCallback(tutorial_srvs::TutorialSrv::Request &req,
+                                        tutorial_srvs::TutorialSrv::Response &res);
     void Spin();
 
 private:

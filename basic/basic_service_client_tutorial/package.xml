@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>basic_service_client_tutorial</name>
-  <version>0.1.0</version>
+  <version>0.0.0</version>
   <description>The basic_service_client_tutorial package</description>
 
   <maintainer email="parkour5813@gmail.com">PigeonSensei</maintainer>
@@ -11,13 +11,14 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>roscpp</build_depend>
-  <build_depend>basic_service_server_tutorial</build_depend>
+  <build_depend>tutorial_srvs</build_depend>
 
   <build_export_depend>roscpp</build_export_depend>
-  <build_export_depend>basic_service_server_tutorial</build_export_depend>
+  <build_export_depend>tutorial_srvs</build_export_depend>
 
   <exec_depend>roscpp</exec_depend>
-  <exec_depend>basic_service_server_tutorial</exec_depend>
+  <exec_depend>tutorial_srvs</exec_depend>
+
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

@@ -1,6 +1,5 @@
 #include <ros/ros.h>
-
-#include "basic_service_server_tutorial/Tutorial.h"
+#include "tutorial_srvs/TutorialSrv.h"
 
 int main(int argc, char **argv)
 {
@@ -9,7 +8,7 @@ int main(int argc, char **argv)
 
   ROS_INFO("basic_service_client_node Open");
 
-  ros::ServiceClient service_client_tutorial_command = n.serviceClient<basic_service_server_tutorial::Tutorial>("tutorial_command");
+  ros::ServiceClient service_client_tutorial_command = n.serviceClient<tutorial_srvs::TutorialSrv>("tutorial_command");
   basic_service_server_tutorial::Tutorial tutorial_command;
 
   tutorial_command.request.command = "tutorial 1";
