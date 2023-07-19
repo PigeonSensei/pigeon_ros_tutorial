@@ -119,6 +119,11 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+add_executable(basic_service_client_node src/basic_service_client.cpp)
+target_link_libraries(basic_service_client_node ${catkin_LIBRARIES})
+add_dependencies(basic_service_client_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/basic_service_client_tutorial.cpp
