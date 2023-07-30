@@ -6,7 +6,11 @@ bool BasicClassClient::TutorialCommandServiceCall()
 
   service_client_tutorial_command_.call(tutorial_command_);
 
-  ROS_INFO("rosservice call /tutorial_command command: 'tutorial 1'");
+  ROS_INFO("rosservice call /tutorial_command command: '%s'", tutorial_command_.request.command.c_str());
+
+  ROS_INFO("Service Call Response result : %s", tutorial_command_.response.result.c_str());
+
+  ROS_INFO("Service Call Response message : %s", tutorial_command_.response.message.c_str());
 
   return true;
 }
