@@ -2,13 +2,18 @@
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "basic_parameta_node");
+  ros::init(argc, argv, "basic_private_parameta_node");
   ros::NodeHandle n("~");
+
+  ROS_INFO("basic_private_parameta_node Open");
+
+  ros::Rate loop_rate(60);
 
   std::string parameta_string;
   int parameta_int;
   double parameta_double;
   bool parameta_bool;
+
   std::vector<int> parameta_array_int;
   std::vector<double> parameta_array_double;
   std::vector<std::string> parameta_array_string;
@@ -21,11 +26,13 @@ int main(int argc, char **argv)
   n.param<int>("ParametaInt",parameta_int,0);
   n.param<double>("ParametaDouble",parameta_double,0.0);
   n.param<bool>("ParametaBool",parameta_bool,false);
-  n.param<std::vector<int>>("ParametaArrayInt",parameta_array_int, parameta_array_int);
-  n.param<std::vector<double>>("ParametaArrayDouble",parameta_array_double, parameta_array_double);
-  n.param<std::vector<std::string>>("ParametaArrayString",parameta_array_string, parameta_array_string);
+
+  n.param<std::vector<int>>("ParametaArrayInt",parameta_array_int, {0});
+  n.param<std::vector<double>>("ParametaArrayDouble",parameta_array_double, {0.0});
+  n.param<std::vector<std::string>>("ParametaArrayString",parameta_array_string, {"Non"});
 
   ROS_INFO("ParametaString : %s", parameta_string.c_str());
+  ROS_INFO("ParametaInt : %d", parameta_int);
   ROS_INFO("ParametaDouble : %f", parameta_double);
   if(parameta_bool == true) ROS_INFO("ParametaBool : true");
   else if(parameta_bool == false) ROS_INFO("ParametaBool : false");
@@ -36,12 +43,11 @@ int main(int argc, char **argv)
 
   while(ros::ok())
   {
-
+    ros::spinOnce();
+    loop_rate.sleep();
   }
 
-  std::vector<int>().swap(parameta_array_int);
-  std::vector<double>().swap(parameta_array_double);
-  std::vector<std::string>().swap(parameta_array_string);
+  ROS_INFO("basic_private_parameta_node Close");
 
   return 0;
 
