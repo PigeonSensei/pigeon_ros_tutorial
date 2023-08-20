@@ -1,6 +1,6 @@
 #include "basic_class_dynamic_reconfigure_tutorial/basic_class_dynamic_reconfigure.h"
 
-void BasicClassDynamicReconfigure::DynamicReconfigureCallback(tutorial_cfgs::TutorialCfgConfig &config, uint32_t level)
+void BasicClassDynamicReconfigure::DynamicReconfigureCallback(basic_class_dynamic_reconfigure_tutorial::TutorialConfig &config, uint32_t level)
 {
   dynamic_parameta_int_ = config.param_int;
   dynamic_parameta_double_ = config.param_double;

@@ -1,8 +1,8 @@
 #include <ros/ros.h>
 #include "dynamic_reconfigure/server.h"
-#include "tutorial_cfgs/TutorialCfgConfig.h"
+#include "basic_dynamic_reconfigure_tutorial/TutorialConfig.h"
 
-void DynamicReconfigureCallback(tutorial_cfgs::TutorialCfgConfig &config, uint32_t level)
+void DynamicReconfigureCallback(basic_dynamic_reconfigure_tutorial::TutorialConfig &config, uint32_t level)
 {
   ROS_INFO("Dynamic Param Int : %d", config.param_int);
   ROS_INFO("Dynamic Param Double : %f", config.param_double);
@@ -20,8 +20,8 @@ int main(int argc, char **argv)
 
   ROS_INFO("basic_dynamic_reconfigure_node Open");
 
-  dynamic_reconfigure::Server<tutorial_cfgs::TutorialCfgConfig> server;
-  dynamic_reconfigure::Server<tutorial_cfgs::TutorialCfgConfig>::CallbackType f;
+  dynamic_reconfigure::Server<basic_dynamic_reconfigure_tutorial::TutorialConfig> server;
+  dynamic_reconfigure::Server<basic_dynamic_reconfigure_tutorial::TutorialConfig>::CallbackType f;
 
   f = boost::bind(&DynamicReconfigureCallback, _1, _2);
   server.setCallback(f);

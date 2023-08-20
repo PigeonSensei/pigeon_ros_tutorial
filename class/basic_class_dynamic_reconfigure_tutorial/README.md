@@ -11,8 +11,6 @@ rosrun basic_class_dynamic_reconfigure_tutorial basic_class_dynamic_reconfigure_
 ### Parameters
 Dynamically Reconfigurable Parameters
 
-The dynamic parameter package is referenced [tutorial_cfgs](https://github.com/PigeonSensei/pigeon_ros_tutorial/tree/master/others/tutorial_cfgs)
-
 ~ **param_int** (int, defalut: 1, Range: -9 to 9)
 
 ~ **param_double** (double, default: 1.0, Range: -9.9 to 9.9)
