@@ -8,8 +8,8 @@ project(basic_class_dynamic_reconfigure_tutorial)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  dynamic_reconfigure
   roscpp
+  tutorial_cfgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -87,9 +87,10 @@ find_package(catkin REQUIRED COMPONENTS
 ##     and list every .cfg file to be processed
 
 ## Generate dynamic reconfigure parameters in the 'cfg' folder
-generate_dynamic_reconfigure_options(
-  cfg/Tutorial.cfg
-)
+# generate_dynamic_reconfigure_options(
+#   cfg/DynReconf1.cfg
+#   cfg/DynReconf2.cfg
+# )
 
 ###################################
 ## catkin specific configuration ##
@@ -120,8 +121,7 @@ include_directories(
 
 add_executable(basic_class_dynamic_reconfigure_node src/basic_class_dynamic_reconfigure.cpp)
 target_link_libraries(basic_class_dynamic_reconfigure_node ${catkin_LIBRARIES})
-add_dependencies(basic_class_dynamic_reconfigure_node ${PROJECT_NAME}_gencfg)
-
+add_dependencies(basic_class_dynamic_reconfigure_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}

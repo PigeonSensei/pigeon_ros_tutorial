@@ -1,6 +1,6 @@
 #include "basic_class_dynamic_reconfigure_tutorial/basic_class_dynamic_reconfigure.h"
 
-void BasicClassDynamicReconfigure::DynamicReconfigureCallback(basic_class_dynamic_reconfigure_tutorial::TutorialConfig &config, uint32_t level)
+void BasicClassDynamicReconfigure::DynamicReconfigureCallback(tutorial_cfgs::TutorialCfgConfig &config, uint32_t level)
 {
   dynamic_parameta_int_ = config.param_int;
   dynamic_parameta_double_ = config.param_double;
@@ -15,7 +15,6 @@ void BasicClassDynamicReconfigure::PrintParameta()
   ROS_INFO("Dynamic Param String : %s", dynamic_parameta_string_.c_str());
   if(dynamic_parameta_bool_ == true) ROS_INFO("Dynamic Param Bool : true");
   else if (dynamic_parameta_bool_ != true) ROS_INFO("Dynamic Param Bool : false");
-  std::cout << std::endl;
 }
 
 void BasicClassDynamicReconfigure::Spin()
@@ -38,5 +37,7 @@ int main(int argc, char **argv)
     ros::spinOnce();
     loop_rate.sleep();
   }
+
+  return 0;
 
 }

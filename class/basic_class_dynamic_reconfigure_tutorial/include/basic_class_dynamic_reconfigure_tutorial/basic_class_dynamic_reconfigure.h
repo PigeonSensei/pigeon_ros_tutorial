@@ -3,7 +3,7 @@
 
 #include <ros/ros.h>
 #include "dynamic_reconfigure/server.h"
-#include "basic_class_dynamic_reconfigure_tutorial/TutorialConfig.h"
+#include "tutorial_cfgs/TutorialCfgConfig.h"
 
 class BasicClassDynamicReconfigure
 {
@@ -20,7 +20,7 @@ public:
           ROS_INFO("basic_class_dynamic_reconfigure_node Close");
        }
 
-    void DynamicReconfigureCallback(basic_class_dynamic_reconfigure_tutorial::TutorialConfig &config, uint32_t level);
+    void DynamicReconfigureCallback(tutorial_cfgs::TutorialCfgConfig &config, uint32_t level);
 
     void PrintParameta();
 
@@ -33,8 +33,8 @@ private:
     std::string dynamic_parameta_string_;
     bool dynamic_parameta_bool_;
 
-    dynamic_reconfigure::Server<basic_class_dynamic_reconfigure_tutorial::TutorialConfig> server_;
-    dynamic_reconfigure::Server<basic_class_dynamic_reconfigure_tutorial::TutorialConfig>::CallbackType f_ = boost::bind(&BasicClassDynamicReconfigure::DynamicReconfigureCallback, this, _1, _2);
+    dynamic_reconfigure::Server<tutorial_cfgs::TutorialCfgConfig> server_;
+    dynamic_reconfigure::Server<tutorial_cfgs::TutorialCfgConfig>::CallbackType f_ = boost::bind(&BasicClassDynamicReconfigure::DynamicReconfigureCallback, this, _1, _2);
 
 };
 

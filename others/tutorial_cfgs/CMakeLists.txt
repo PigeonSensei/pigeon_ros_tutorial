@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(basic_dynamic_reconfigure_tutorial)
+project(tutorial_cfgs)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -9,7 +9,7 @@ project(basic_dynamic_reconfigure_tutorial)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  tutorial_cfgs
+  dynamic_reconfigure
 )
 
 ## System dependencies are found with CMake's conventions
@@ -87,10 +87,9 @@ find_package(catkin REQUIRED COMPONENTS
 ##     and list every .cfg file to be processed
 
 ## Generate dynamic reconfigure parameters in the 'cfg' folder
-# generate_dynamic_reconfigure_options(
-#   cfg/DynReconf1.cfg
-#   cfg/DynReconf2.cfg
-# )
+ generate_dynamic_reconfigure_options(
+   cfg/TutorialCfg.cfg
+ )
 
 ###################################
 ## catkin specific configuration ##
@@ -103,8 +102,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES basic_dynamic_reconfigure_tutorial
-#  CATKIN_DEPENDS roscpp
+#  LIBRARIES tutorial_cfgs
+  CATKIN_DEPENDS roscpp dynamic_reconfigure
 #  DEPENDS system_lib
 )
 
@@ -119,14 +118,9 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-
-add_executable(basic_dynamic_reconfigure_node src/basic_dynamic_reconfigure.cpp)
-target_link_libraries(basic_dynamic_reconfigure_node ${catkin_LIBRARIES})
-add_dependencies(basic_dynamic_reconfigure_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/basic_dynamic_reconfigure_tutorial.cpp
+#   src/${PROJECT_NAME}/tutorial_cfgs.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -137,7 +131,7 @@ add_dependencies(basic_dynamic_reconfigure_node ${${PROJECT_NAME}_EXPORTED_TARGE
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/basic_dynamic_reconfigure_tutorial_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/tutorial_cfgs_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -201,7 +195,7 @@ add_dependencies(basic_dynamic_reconfigure_node ${${PROJECT_NAME}_EXPORTED_TARGE
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_basic_dynamic_reconfigure_tutorial.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_tutorial_cfgs.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

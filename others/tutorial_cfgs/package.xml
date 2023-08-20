@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>basic_class_dynamic_reconfigure_tutorial</name>
+  <name>tutorial_cfgs</name>
   <version>0.0.0</version>
-  <description>The basic_class_dynamic_reconfigure_tutorial package</description>
+  <description>The tutorial_cfgs package</description>
 
   <maintainer email="parkour5813@gmail.com">PigeonSensei</maintainer>
 
@@ -11,13 +11,13 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>roscpp</build_depend>
-  <build_depend>tutorial_cfgs</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
 
   <build_export_depend>roscpp</build_export_depend>
-  <build_export_depend>tutorial_cfgs</build_export_depend>
+  <build_export_depend>dynamic_reconfigure</build_export_depend>
 
   <exec_depend>roscpp</exec_depend>
-  <exec_depend>tutorial_cfgs</exec_depend>
+  <exec_depend>dynamic_reconfigure</exec_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
