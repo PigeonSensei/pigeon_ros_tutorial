@@ -18,10 +18,6 @@ int main(int argc, char **argv)
   std::vector<double> parameta_array_double;
   std::vector<std::string> parameta_array_string;
 
-  parameta_array_int.push_back(0);
-  parameta_array_double.push_back(0.0);
-  parameta_array_string.push_back("Non");
-
   n.param<std::string>("ParametaString",parameta_string,"Non");
   n.param<int>("ParametaInt",parameta_int,0);
   n.param<double>("ParametaDouble",parameta_double,0.0);
